@@ -1,0 +1,8 @@
+LIBRARY gdi32.dll
+EXPORTS
+GetStockObject
+CreateFontIndirectW
+SelectObject
+DeleteObject
+SetBkMode
+SetTextColor

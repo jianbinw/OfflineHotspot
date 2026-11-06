@@ -1,0 +1,33 @@
+#include <windows.h>
+#include "resource.h"
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+IDI_APP ICON "app.ico"
+
+1 24 "app.manifest"
+
+IDD_MAIN DIALOGEX 0, 0, 280, 280
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+CAPTION "Offline Hotspot"
+FONT 9, "Segoe UI", 400, 0, 1
+BEGIN
+    LTEXT           "&Network name:", -1, 10, 12, 60, 8
+    EDITTEXT        IDC_SSID, 74, 10, 196, 13, ES_AUTOHSCROLL
+    LTEXT           "&Password:", -1, 10, 30, 60, 8
+    EDITTEXT        IDC_PASSWORD, 74, 28, 196, 13, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Start hotspot", IDC_TOGGLE, 74, 47, 84, 16
+    PUSHBUTTON      "Show &QR code", IDC_QR, 164, 47, 84, 16, WS_DISABLED
+
+    LTEXT           "Status:", -1, 10, 72, 60, 8
+    LTEXT           "Stopped", IDC_STATUS, 74, 72, 196, 26, SS_NOPREFIX
+    LTEXT           "Hotspot IP:", -1, 10, 102, 60, 8
+    EDITTEXT        IDC_IP, 74, 102, 196, 10, ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+
+    LTEXT           "Connected devices: 0", IDC_DEVICES_LABEL, 10, 118, 260, 8
+    LISTBOX         IDC_DEVICES, 10, 128, 260, 42, LBS_NOSEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL
+    LTEXT           "Activity:", -1, 10, 176, 260, 8
+    EDITTEXT        IDC_LOG, 10, 186, 260, 58, ES_MULTILINE | ES_READONLY | ES_AUTOVSCROLL | WS_VSCROLL | NOT WS_TABSTOP
+
+    LTEXT           "This hotspot does not share internet. Closing this window stops it.", -1, 10, 252, 260, 18
+END

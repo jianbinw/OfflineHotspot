@@ -1,0 +1,28 @@
+name: release
+
+# Pushing a tag such as v0.3.0 builds the exe and publishes a GitHub Release.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+      - name: Build
+        shell: cmd
+        run: build.cmd
+      - name: Package
+        shell: pwsh
+        run: Compress-Archive build\OfflineHotspot.exe "OfflineHotspot-${{ github.ref_name }}.zip"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: OfflineHotspot-*.zip
+          generate_release_notes: true

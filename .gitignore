@@ -1,0 +1,9 @@
+# Build output
+build/
+*.obj
+*.res
+
+# A prebuilt exe goes on the GitHub release page, not in the repo
+*.exe
+
+__pycache__/

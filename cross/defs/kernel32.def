@@ -1,0 +1,18 @@
+LIBRARY kernel32.dll
+EXPORTS
+GetProcessHeap
+HeapAlloc
+HeapFree
+lstrcpynW
+lstrlenW
+lstrcmpW
+lstrcatW
+lstrcpyW
+GetLocalTime
+SetThreadExecutionState
+GetModuleHandleW
+GetCommandLineW
+ExitProcess
+LocalFree
+MulDiv
+WideCharToMultiByte
